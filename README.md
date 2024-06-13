@@ -46,7 +46,7 @@ I welcome contributions from fellow robotics enthusiasts. If you have suggestion
 ## Contact
 
 For any questions, suggestions, or collaborations, feel free to contact me:
-- **LinkedIn:** [Hemant Verma]((https://www.linkedin.com/in/hemant-verma-ind))
+- **LinkedIn:** [Hemant Verma]([https://www.linkedin.com/in/hemant-verma-ind])
 
 Thank you for visiting my repository. Happy building and coding!
 
