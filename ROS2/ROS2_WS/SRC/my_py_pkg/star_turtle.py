@@ -41,13 +41,13 @@ class StarDrawer(Node):
         twist = Twist()
         
         # Length of one side of the star
-        length = 5.0
+        length = 2.0
         
         for _ in range(5):
             twist.linear.x = length
             twist.angular.z = 0.0
             self.publisher_.publish(twist)
-            time.sleep(1.5)  # Move forward
+            time.sleep(2.0)  # Move forward
             
             twist.linear.x = 0.0
             twist.angular.z = 4 * 3.14159 / 5  # Turn 144 degrees
@@ -58,6 +58,14 @@ class StarDrawer(Node):
         twist.linear.x = 0.0
         twist.angular.z = 0.0
         self.publisher_.publish(twist)
+
+    def draw_shape(self, movements):
+        twist = Twist()
+        for movement in movements:
+            twist.linear.x = movement[0]
+            twist.angular.z = movement[1]
+            self.publisher_.publish(twist)
+            time.sleep(movement[2])
 
 def main(args=None):
     rclpy.init(args=args)
