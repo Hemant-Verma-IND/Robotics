@@ -39,21 +39,16 @@ class StarDrawer(Node):
     def draw_star(self):
         self.set_pen(0, 0, 255, 2, 0)
         star_movements = [
-            (2.0, 0.0, 2.0),    # Move forward
-            (0.0, 2.513, 1.0),  # Turn right
-            (2.0, 0.0, 2.0),    # Move forward
-            (0.0, -1.884, 1.0), # Turn left
-            (2.0, 0.0, 2.0),    # Move forward
-            (0.0, 2.513, 1.0),  # Turn right
-            (2.0, 0.0, 2.0),    # Move forward
-            (0.0, -1.884, 1.0), # Turn left
-            (2.0, 0.0, 2.0),    # Move forward
-            (0.0, 2.513, 1.0),  # Turn right
-            (2.0, 0.0, 2.0),    # Move forward
-            (0.0, -1.884, 1.0), # Turn left
-            (2.0, 0.0, 2.0),    # Move forward
-            (0.0, 2.513, 1.0),  # Turn right
-            (2.0, 0.0, 2.0)     # Move forward
+            (2.0, 0.0, 2.0),  # Move forward
+            (0.0, 2 * 3.14159 / 5, 1.0),  # Turn 144 degrees
+            (2.0, 0.0, 2.0),  # Move forward
+            (0.0, 2 * 3.14159 / 5, 1.0),  # Turn 144 degrees
+            (2.0, 0.0, 2.0),  # Move forward
+            (0.0, 2 * 3.14159 / 5, 1.0),  # Turn 144 degrees
+            (2.0, 0.0, 2.0),  # Move forward
+            (0.0, 2 * 3.14159 / 5, 1.0),  # Turn 144 degrees
+            (2.0, 0.0, 2.0),  # Move forward
+            (0.0, 2 * 3.14159 / 5, 1.0)   # Turn 144 degrees to close the star
         ]
         self.draw_shape(star_movements)
 
