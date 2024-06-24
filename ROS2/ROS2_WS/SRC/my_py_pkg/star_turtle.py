@@ -38,27 +38,26 @@ class StarDrawer(Node):
 
     def draw_star(self):
         self.set_pen(0, 0, 255, 2, 0)
-        star_movements = [
-            (2.0, 0.0, 2.0),  # Move forward
-            (0.0, 2 * 3.14159 / 5, 1.0),  # Turn 144 degrees
-            (2.0, 0.0, 2.0),  # Move forward
-            (0.0, 2 * 3.14159 / 5, 1.0),  # Turn 144 degrees
-            (2.0, 0.0, 2.0),  # Move forward
-            (0.0, 2 * 3.14159 / 5, 1.0),  # Turn 144 degrees
-            (2.0, 0.0, 2.0),  # Move forward
-            (0.0, 2 * 3.14159 / 5, 1.0),  # Turn 144 degrees
-            (2.0, 0.0, 2.0),  # Move forward
-            (0.0, 2 * 3.14159 / 5, 1.0)   # Turn 144 degrees to close the star
-        ]
-        self.draw_shape(star_movements)
-
-    def draw_shape(self, movements):
         twist = Twist()
-        for movement in movements:
-            twist.linear.x = movement[0]
-            twist.angular.z = movement[1]
+        
+        # Length of one side of the star
+        length = 5.0
+        
+        for _ in range(5):
+            twist.linear.x = length
+            twist.angular.z = 0.0
             self.publisher_.publish(twist)
-            time.sleep(movement[2])
+            time.sleep(1.5)  # Move forward
+            
+            twist.linear.x = 0.0
+            twist.angular.z = 4 * 3.14159 / 5  # Turn 144 degrees
+            self.publisher_.publish(twist)
+            time.sleep(1.0)  # Turning time
+
+        # Stop the turtle at the end
+        twist.linear.x = 0.0
+        twist.angular.z = 0.0
+        self.publisher_.publish(twist)
 
 def main(args=None):
     rclpy.init(args=args)
